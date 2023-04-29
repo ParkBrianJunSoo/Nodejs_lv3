@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "parkbrianjunsoo",
+    "password": "1q2w3e4r",
+    "database": "NODEJS_LV3",
+    "host": "database-1.ccdf1vddo73r.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
