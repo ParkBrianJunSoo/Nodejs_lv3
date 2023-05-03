@@ -68,7 +68,7 @@ router.get('/like', authMiddleware, async (req, res) => {
 });
 
 
-// 좋아요 업데이트
+// 게시글 좋아요 
 router.put('/:postId/like', authMiddleware, async (req, res) => {
     try {
         const { postId } = req.params;
