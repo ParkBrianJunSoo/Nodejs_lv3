@@ -6,7 +6,7 @@ const { Posts } = require("../models");
 
 
 // 게시글 생성 API // 토큰을 검사하여, 유효한 토큰일 경우에만 게시글 작성 가능 기능 구현 못함
-router.post("/posts", authMiddleware, async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
     try {
         const { userId, nickname } = res.locals.user;
         const { title, content } = req.body;
@@ -46,7 +46,7 @@ router.post("/posts", authMiddleware, async (req, res) => {
 
 
 // 게시글 조회
-router.get("/posts", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const posts = await Posts.findAll({
             attributes: ["postId", "userId", "nickname", "title", "createdAt", "updatedAt"],
@@ -61,7 +61,7 @@ router.get("/posts", async (req, res) => {
 
 
 // 게시글 상세 조회
-router.get("/posts/:postId", async (req, res) => {
+router.get("/:postId", async (req, res) => {
     try {
         const { postId } = req.params;
         const post = await Posts.findOne({
@@ -77,7 +77,7 @@ router.get("/posts/:postId", async (req, res) => {
 
 
 // 게시글 수정
-router.put("/posts/:postId", authMiddleware, async (req, res) => {
+router.put("/:postId", authMiddleware, async (req, res) => {
     const { postId } = req.params;
     const { userId } = res.locals.user;
     const { title, content } = req.body;
@@ -103,7 +103,7 @@ router.put("/posts/:postId", authMiddleware, async (req, res) => {
 
 
 // 게시글 삭제
-router.delete("/posts/:postId", authMiddleware, async (req, res) => {
+router.delete("/:postId", authMiddleware, async (req, res) => {
     const { postId } = req.params;
     const { userId } = res.locals.user;
     // 게시글을 조회합니다.

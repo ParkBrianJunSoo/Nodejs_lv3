@@ -1,14 +1,20 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 
-const usersRouter = require("./routes/users.route.js")
-const postsRouter = require("./routes/posts.route.js");
+// const usersRouter = require("./routes/users.route.js")
+// const postsRouter = require("./routes/posts.route.js");
 const app = express();
 const PORT = 3020;
 
+// const swaggerUi = require("swagger-ui-express");
+// const swaggerFile = require("./swagger-output");
+const routes = require('./routes'); // 한 번에 임포트
+
 app.use(express.json());
 app.use(cookieParser());
-app.use('/', [usersRouter, postsRouter]);
+// app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+// app.use('/', [usersRouter, postsRouter]);
+app.use('/', routes);
 
 
 

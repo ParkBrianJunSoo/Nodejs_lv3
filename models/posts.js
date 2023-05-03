@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'UserId', // 4. Posts 모델의 UserId 컬럼과 연결합니다.
       });
 
+      this.hasMany(models.Comments, { // 2. Posts 모델에게 1:N 관계 설정을 합니다.
+        sourceKey: 'postId', // 3. Users 모델의 userId 컬럼을
+        foreignKey: 'PostId', // 4. Posts 모델의 UserId 컬럼과 연결합니다.
+      });
+
       // // 1. Posts 모델에서
       // this.hasMany(models.Comments, { // 2. Comments 모델에게 1:N 관계 설정을 합니다.
       //   sourceKey: 'postId', // 3. Posts 모델의 postId 컬럼을
